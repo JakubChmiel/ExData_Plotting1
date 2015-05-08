@@ -15,14 +15,14 @@ for (i in 1:ncol(hpc)) {
 hpc$Date <- as.Date(hpc$Date)
 hpc$datetime <- strptime(paste(hpc$Date,hpc$Time), "%Y-%m-%d %H:%M:%S")
 
-## generating plot
+
+
+## saving and generating plot
+png(file = 'plot3.png',width = 480, height = 480)
 
 with(hpc,plot(datetime,Sub_metering_1,type='l',xlab = '', ylab = 'Energy sub metering' ) )
 with(hpc,lines(datetime,Sub_metering_2, col = 'red'))
 with(hpc,lines(datetime,Sub_metering_3, col = 'blue'))
 legend('topright', legend = c('Sub_metering_1','Sub_metering_2','Sub_metering_3'), col = c('black','red','blue'), lty = 1)
 
-## saving generated plot to PNG file
-
-dev.copy(png,file = 'plot3.png')
 dev.off()

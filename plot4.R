@@ -15,7 +15,9 @@ for (i in 1:ncol(hpc)) {
 hpc$Date <- as.Date(hpc$Date)
 hpc$datetime <- strptime(paste(hpc$Date,hpc$Time), "%Y-%m-%d %H:%M:%S")
 
-## generating plot
+## saving and generating plot
+
+png(file = 'plot4.png',width = 480, height = 480)
 
 par(mfrow = c(2,2))
 with(hpc,plot(datetime,Global_active_power,type='l',xlab = '', ylab = 'Global Active Power' ) )
@@ -27,7 +29,5 @@ legend('topright', legend = c('Sub_metering_1','Sub_metering_2','Sub_metering_3'
        , col = c('black','red','blue'), lty = 1,cex = 0.75,bty = "n")
 with(hpc,plot(datetime,Global_reactive_power,type='l') )
 
-## saving generated plot to PNG file
-
-dev.copy(png,file = 'plot4.png')
 dev.off()
+

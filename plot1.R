@@ -21,9 +21,9 @@ hpc <- hpc[hpc$Date %in% c(as.Date('2007-02-01'),as.Date('2007-02-02')),]
 ## generating plot
 
 hist(hpc$Global_active_power,col='red',xlab = 'Global Active Power (kilowatts)',ylab='Frequency'
-     , main = 'Global Active Power',  breaks = 12)
+     , main = 'Global Active Power')
 
 ## saving generated plot to PNG file
 
-dev.copy(png,file = 'plot1.png')
+dev.copy(png,file = 'plot1.png',width = 480, height = 480)
 dev.off()
